@@ -5,6 +5,7 @@ import sys
 from datetime import date
 
 from .analyzer import AnalyzeOptions, analyze_repository
+from .exceptions import AuditError
 from .exit_codes import ExitCode
 from .formatters import format_csv_summary, format_csv_timeline, format_json, format_table
 
@@ -47,9 +48,9 @@ def main(argv: list[str] | None = None) -> None:
 
     try:
         result = analyze_repository(args.repo, options)
-    except NotImplementedError as e:
+    except AuditError as e:
         sys.stderr.write(str(e) + "\n")
-        raise SystemExit(int(ExitCode.SUCCESS))
+        raise SystemExit(int(e.exit_code))
 
     if args.format == "table":
         output = format_table(result)
