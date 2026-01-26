@@ -106,6 +106,119 @@ If you care about measuring AI contribution, the cost is simple:
 
 ---
 
+## Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/ai-commit-audit.git
+cd ai-commit-audit
+
+# Install in development mode
+pip install -e .
+
+# Or install with dev dependencies for testing
+pip install -e ".[dev]"
+```
+
+---
+
+## Usage
+
+### Basic usage
+
+Analyze any Git repository (local or remote):
+
+```bash
+# Analyze the current repository
+python run.py analyze .
+
+# Analyze a specific local repository
+python run.py analyze /path/to/your/repo
+
+# Analyze a GitHub repository (clone it first)
+git clone https://github.com/username/repo.git
+python run.py analyze ./repo
+```
+
+### Command-line options
+
+```bash
+# Filter by date range
+python run.py analyze . --since 2024-01-01 --until 2024-12-31
+
+# Filter by author
+python run.py analyze . --author "Your Name"
+
+# Output formats
+python run.py analyze . --format table    # default, human-readable
+python run.py analyze . --format json     # machine-readable
+python run.py analyze . --format csv      # spreadsheet-friendly
+
+# Save to file
+python run.py analyze . --format json --out results.json
+python run.py analyze . --format csv --out results  # creates results_summary.csv and results_timeline.csv
+
+# Strict mode (fail if untagged commits exist)
+python run.py analyze . --strict
+```
+
+### Testing with this repository
+
+To test the tool on this repository itself:
+
+```bash
+# First, make sure some commits have tags
+# Check existing commit messages:
+git log --oneline
+
+# Analyze this repository
+python run.py analyze .
+```
+
+### Testing with a GitHub repository
+
+```bash
+# Clone any public GitHub repo
+git clone https://github.com/username/repository.git
+cd repository
+
+# Go back to ai-commit-audit directory
+cd ../ai-commit-audit
+
+# Analyze the cloned repository
+python run.py analyze ../repository
+```
+
+### Example: Creating tagged commits for testing
+
+If you want to test with properly tagged commits:
+
+```bash
+# Create a test repository
+mkdir test-repo
+cd test-repo
+git init
+
+# Create some tagged commits
+echo "print('hello')" > test.py
+git add test.py
+git commit -m "[human] Initial implementation"
+
+echo "# AI generated function" >> test.py
+git add test.py
+git commit -m "[ai] Add AI-generated helper"
+
+echo "# Manual fix" >> test.py
+git add test.py
+git commit -m "[human + ai] Refactor AI code with manual edits"
+
+# Now analyze it
+cd ../ai-commit-audit
+python run.py analyze ../test-repo
+```
+
+---
+
 ## Status
 
 This project is intentionally minimal.
