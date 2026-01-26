@@ -154,10 +154,38 @@ Any changes must preserve:
 
 ---
 
+## Applying this methodology
+
+This methodology is not just a classification system — it is a **workflow discipline**.
+
+Tagging happens **at commit time**, not retroactively.
+
+### Practical implementation
+
+To maintain consistency:
+
+1. **Tag every commit** as you write the commit message
+2. **Choose the appropriate tag** based on the definitions above
+3. **Commit immediately** after code changes to avoid ambiguity
+
+### Workflow tools
+
+See **`RULES.md`** for operational guidelines when working with AI assistants.
+
+These rules help enforce tagging discipline by:
+- automating tag inclusion in commit messages
+- reducing friction in the tagging process
+- ensuring no commits are left untagged
+
+The methodology defines **what** to measure.
+The rules define **how** to measure it consistently.
+
+---
+
 ## Final note
 
 If you are not willing to tag your commits,
 you are not measuring AI contribution.
 
 And if you are not measuring it,
-you probably shouldn’t quote percentages.
+you probably shouldn't quote percentages.
