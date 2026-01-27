@@ -1,6 +1,6 @@
 # Human vs AI Commit Tagging Methodology
 
-This document defines the rules used by **AI Commit Audit** to classify Git commits.
+This document defines the rules used by **Who Wrote This** to classify Git commits.
 
 The goal is not perfect attribution.
 The goal is **honest, reproducible tracking over time**.

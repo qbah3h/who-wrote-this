@@ -39,7 +39,7 @@ def _run_git(args: list[str], cwd: Path) -> subprocess.CompletedProcess[str]:
 
 
 def _clone_repo(url: str) -> tempfile.TemporaryDirectory[str]:
-    td = tempfile.TemporaryDirectory(prefix="ai_commit_audit_")
+    td = tempfile.TemporaryDirectory(prefix="who_wrote_this_")
     dest = Path(td.name)
 
     cp = subprocess.run(

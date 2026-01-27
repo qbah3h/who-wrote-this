@@ -1,4 +1,4 @@
-# AI Commit Audit
+# Who Wrote This
 
 A small CLI tool to **analyze human vs AI contribution over time** based on explicit Git commit tags.
 
@@ -110,8 +110,8 @@ If you care about measuring AI contribution, the cost is simple:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/ai-commit-audit.git
-cd ai-commit-audit
+git clone https://github.com/yourusername/who-wrote-this.git
+cd who-wrote-this
 
 # Install in development mode
 pip install -e .
@@ -182,8 +182,8 @@ python run.py analyze .
 git clone https://github.com/username/repository.git
 cd repository
 
-# Go back to ai-commit-audit directory
-cd ../ai-commit-audit
+# Go back to who-wrote-this directory
+cd ../who-wrote-this
 
 # Analyze the cloned repository
 python run.py analyze ../repository
@@ -213,7 +213,7 @@ git add test.py
 git commit -m "[human + ai] Refactor AI code with manual edits"
 
 # Now analyze it
-cd ../ai-commit-audit
+cd ../who-wrote-this
 python run.py analyze ../test-repo
 ```
 
