@@ -1,8 +1,8 @@
 import json
 from datetime import date
 
-from ai_commit_audit.formatters import format_csv_summary, format_csv_timeline, format_json, format_table
-from ai_commit_audit.models import (
+from who_wrote_this.formatters import format_csv_summary, format_csv_timeline, format_json, format_table
+from who_wrote_this.models import (
     AnalyzedRange,
     AuditResult,
     Integrity,
@@ -30,7 +30,7 @@ def _fixture_result() -> AuditResult:
 
 def test_format_table_contains_expected_sections() -> None:
     out = format_table(_fixture_result())
-    assert "AI Commit Audit — v1" in out
+    assert "Who Wrote This — v1" in out
     assert "Repository: https://github.com/user/repo" in out
     assert "Analyzed range: 2024-01-01 → 2024-12-31" in out
     assert "Tag            Commits    Percentage" in out

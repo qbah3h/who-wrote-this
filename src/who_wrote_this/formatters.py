@@ -17,7 +17,7 @@ def format_table(result: AuditResult) -> str:
     until = _fmt_date(result.analyzed_range.until)
 
     lines: list[str] = []
-    lines.append("AI Commit Audit — v1")
+    lines.append("Who Wrote This — v1")
     lines.append(f"Repository: {result.repository}")
     lines.append(f"Analyzed range: {since} → {until}")
     lines.append(f"Total commits found: {result.summary.total_commits}")

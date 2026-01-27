@@ -7,9 +7,9 @@ from pathlib import Path
 
 import pytest
 
-from ai_commit_audit.analyzer import AnalyzeOptions, analyze_repository
-from ai_commit_audit.exit_codes import ExitCode
-from ai_commit_audit.exceptions import AuditError
+from who_wrote_this.analyzer import AnalyzeOptions, analyze_repository
+from who_wrote_this.exit_codes import ExitCode
+from who_wrote_this.exceptions import AuditError
 
 
 def _run(cmd: list[str], cwd: Path, env: dict[str, str] | None = None) -> None:

@@ -17,7 +17,7 @@ def _parse_date(s: str | None) -> date | None:
 
 
 def _build_parser() -> argparse.ArgumentParser:
-    p = argparse.ArgumentParser(prog="ai-commit-audit")
+    p = argparse.ArgumentParser(prog="who-wrote-this")
     sub = p.add_subparsers(dest="command", required=True)
 
     a = sub.add_parser("analyze")
